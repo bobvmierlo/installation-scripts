@@ -22,22 +22,23 @@ case $(uname -m) in
     i386)    curl https://github.com/50ButtonsEach/fliclib-linux-hci/blob/master/bin/i386/flicd?raw=true > /usr/local/bin/flicd ;;
     x86_64)  curl https://github.com/50ButtonsEach/fliclib-linux-hci/blob/master/bin/x86_64/flicd > /usr/local/bin/flicd ;;
     armv6l)  curl https://raw.githubusercontent.com/50ButtonsEach/fliclib-linux-hci/master/bin/armv6l/flicd > /usr/local/bin/flicd ;;
+    armv7l)  curl https://raw.githubusercontent.com/50ButtonsEach/fliclib-linux-hci/master/bin/armv6l/flicd > /usr/local/bin/flicd ;;
     *) echo "Sorry, I can not get a $(uname -m) flic binary for you :(" && exit 1 ;;
 esac
 chmod a+x /usr/local/bin/flicd
 echo "Creating systemd file and make it executable"
-# curl https://raw.githubusercontent.com/Underknowledge/installation-scripts/pi-zero/flicd/flicd.service > /etc/systemd/system/flicd.service
+
 cat << EOF > /etc/systemd/system/flicd.service
 [Unit]
-Description=Flic Buttons Service
+Description=flicd Service
 After=bluetooth.service
+Requires=bluetooth.service
 
 [Service]
-Type=simple
-User=root
-ExecStart=/usr/local/bin/flicd -w -s 0.0.0.0 -p 5551 -l /var/log/flic_log -f /tmp/flic.db
+TimeoutStartSec=0
+ExecStart=/usr/local/bin/flicd -f /home/pi/.flic/flic.sqlite3 -s 0.0.0.0 -l /var/log/flicd.log -w
 Restart=always
-RestartSec=10
+RestartSec=3
 
 [Install]
 WantedBy=multi-user.target
@@ -69,7 +70,7 @@ binary_sensor:
 
 to pair a button just press it for +7 secconds
 when you facing issues pairing, reboot the pi.
-it will delete the database in /tmp and you can pair the buttun again "
+it will delete the database in /tmp and you can pair the button again "
 echo
 read -n 1 -s -r -p "Press any key to continue"
 echo 
