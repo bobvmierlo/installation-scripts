@@ -9,10 +9,10 @@ Sadly flic needs exclusive use of the Bluetooth radio to function, So no other f
 Download and run this script with:
 
 ``` 
-  $ curl https://raw.githubusercontent.com/Underknowledge/installation-scripts/master/pi-zero/flicd/flicd-installation-script.sh > ~/flicd-installation-script.sh
+  $ curl https://raw.githubusercontent.com/bobvmierlo/installation-scripts/master/pi-zero/flicd/flicd-installation-script.sh > ~/flicd-installation-script.sh
   $ sudo chmod +x ~/flicd-installation-script.sh
   $ cd ~
-  $ ./flicd-installation-script.sh
+  $ sudo ./flicd-installation-script.sh
 ``` 
  <br>
  <br>
