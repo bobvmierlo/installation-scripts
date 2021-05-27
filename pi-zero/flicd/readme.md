@@ -13,8 +13,16 @@ curl https://raw.githubusercontent.com/bobvmierlo/installation-scripts/master/pi
 sudo chmod +x ~/flicd-installation-script.sh
 cd ~
 sudo ./flicd-installation-script.sh
-``` 
+```
  <br>
  <br>
 to pair a button just press it for +7 secconds <br>
 when you facing issues pairing run 'resetflicdaemon' it will delete the database and reboot the pi <br>
+<br>
+To check if Flic is running use the following commands: <br>
+
+``` 
+sudo netstat -antp | grep "5551"
+sudo ps aux | grep "flicd"
+```
+<br>
