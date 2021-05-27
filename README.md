@@ -1,2 +1,2 @@
 # installation-scripts
-automate, automate, automate, automate, automate, automate, automate, automate, automate, automate, automate, automate, automate, automate, automate, automate, automate, automate, automate, automate, automate, automate, automate, automate, automate, automate, automate, 
+Installation scripts for automated install of the Flic SDK on a raspberry pi
