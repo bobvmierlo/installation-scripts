@@ -9,12 +9,20 @@ Sadly flic needs exclusive use of the Bluetooth radio to function, So no other f
 Download and run this script with:
 
 ``` 
-  $ curl https://raw.githubusercontent.com/bobvmierlo/installation-scripts/master/pi-zero/flicd/flicd-installation-script.sh > ~/flicd-installation-script.sh
-  $ sudo chmod +x ~/flicd-installation-script.sh
-  $ cd ~
-  $ sudo ./flicd-installation-script.sh
-``` 
+curl https://raw.githubusercontent.com/bobvmierlo/installation-scripts/master/pi-zero/flicd/flicd-installation-script.sh > ~/flicd-installation-script.sh
+sudo chmod +x ~/flicd-installation-script.sh
+cd ~
+sudo ./flicd-installation-script.sh
+```
  <br>
  <br>
 to pair a button just press it for +7 secconds <br>
 when you facing issues pairing run 'resetflicdaemon' it will delete the database and reboot the pi <br>
+<br>
+To check if Flic is running use the following commands: <br>
+
+``` 
+sudo netstat -antp | grep "5551"
+sudo ps aux | grep "flicd"
+```
+<br>
