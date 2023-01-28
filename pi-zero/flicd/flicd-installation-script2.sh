@@ -21,7 +21,7 @@ echo "Downloading ${hardware}/flicd"
 sudo apt-get install git
 service bluetooth stop
 git clone https://github.com/50ButtonsEach/fliclib-linux-hci.git
-sudo cp fliclib-linux-hci/bin/aarch64/flicd /usr/local/bin
+sudo cp fliclib-linux-hci/bin/armv7l/flicd /usr/local/bin
 mkdir /home/pi/.flic
 # case $(uname -m) in
 #     aarch64) curl https://github.com/50ButtonsEach/fliclib-linux-hci/blob/master/bin/aarch64/flicd?raw=true > /usr/local/bin/flicd ;;
